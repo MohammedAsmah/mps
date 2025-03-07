@@ -1,0 +1,70 @@
+a:link { color:blue; text-decoration:none; }
+a:visited { color:blue; text-decoration:none; }
+a:hover { color:red; text-decoration:none; }
+
+table { border-collapse:collapse;font-family:Comic sans Ms; }
+td { padding:0px; }
+th
+ {	text-align:center;
+	background-color: yellow;
+	color: blue;
+ }
+
+titre
+{
+	position: fixed;
+	left: 0px;
+	bottom: 0px;
+}
+
+img { border:0px; }
+form {padding:0px; margin:0px; }
+
+
+table1 { background:#f7f7f7; font-size:12px; font-family:Comic sans Ms; }
+.table1 td { padding-right:1px; border: 1px solid #6f6f6f; }
+
+.table2 { width:100%; background:#f7f7f7; font-family:Comic sans Ms; }
+.table2 th { padding: 3px; border: 2px groove; background:#dfdfdf; }
+.table2 td { padding: 3px; border: 2px groove; }
+
+.table3 td { padding: 3px; border: none;}
+.table4 td { padding: 3px; border: none;}
+table2 { background:#f7f7f7; font-size:10px; font-family:Comic sans Ms; border: none;}
+
+
+.feu {
+	width: 45px;
+	height: 45px;
+	margin-top:10px;
+	background-color:#999;
+	border-radius: 05px;
+	border: 3px solid black;
+}
+.noir, .rouge, .orange{
+	width: 30px;
+	height: 30px; 
+	border-radius: 30px;	
+	}
+.noir {
+	margin:05px;
+	background-color: black;
+}
+.rouge {
+	position: relative;
+	background-color:red;
+	animation: rouge 0.5s infinite;
+}
+.orange {
+	position: relative;
+	background-color:#eb8634;
+	animation: rouge 0.5s infinite;
+}
+@keyframes rouge { 
+0%   { z-index:-1; }
+50% { z-index:1; } 
+}
+.st {
+	width: 30px;
+	height: 30px; 
+}

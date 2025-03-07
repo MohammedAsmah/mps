@@ -1,0 +1,63 @@
+<HTML>
+<HEAD>
+<SCRIPT LANGUAGE="JavaScript">
+// D'autres scripts et des tutoriaux sur http://www.toutjavascript.com	
+// Script gratuit à condition de laisser ce commentaire 
+function ClicRub(nu_rub) {
+	with(parent) {
+		if ((menu[nu_rub].page!="")&&(menu[nu_rub].aff=="N")) {
+			frames[menu.target].location.href=menu[nu_rub].page
+		}
+		if (menu[nu_rub].aff=="O") {menu[nu_rub].aff="N"}
+		else {
+			if (menu.mode=="O") {
+				for (var i=0; i<menu.nb_rub;i++) {menu[i].aff="N";}
+			}
+			menu[nu_rub].aff="O";
+		}		
+	}
+	if (parent.menu[nu_rub].nb_lien>0) {window.location=document.location;}
+}
+
+function AffImg(img) {
+	document.write("<IMG SRC='"+img+"' height='"+parent.menu.hauteur+"' BORDER=0 ALT='' ALIGN='top' vspace=0>");
+}
+function Aff(men) {
+	for(var i=0;i<men.nb_rub;i++) {
+		if (men[i].aff=="N") {
+			AffImg(men.imgF);
+			document.write("<A HREF='javascript:ClicRub("+i+")' color='#0C0C00'>");
+			document.write("<FONT FACE='"+men.police+"' size='-1' color="+men.colF+">");
+			document.write(men[i].txt+"</A></FONT><BR>");
+		} else {
+			AffImg(men.imgO);
+			document.write("<A HREF='javascript:ClicRub("+i+")'>");
+			document.write("<FONT FACE='"+men.police+"' size='-1' color="+men.colO+">");
+			document.write(men[i].txt+"</A><BR>");
+			for(var j=0;j<men[i].nb_lien;j++) {
+			if (j==men[i].nb_lien-1) {AffImg(men.imgOptFin);} 
+			else  {AffImg(men.imgOpt);}
+				target=men.target;
+				if (men[i][j].target!="") {target=men[i][j].target;}
+				document.write("<A target='"+target+"' HREF='"+men[i][j].page+"'>");
+				document.write(men[i][j].txt+"</A><BR>");		
+			}
+			document.write("</FONT>");
+		}
+	}
+}
+function DeLog() { top.location = "menumps.php?action_=delog"; }
+</SCRIPT>
+</HEAD>
+
+<BODY bgcolor="#CCCCCCC" text="#FAFAFF" alink="#000066" link="#000066" vlink="#000066" >
+<table><tr><td style="font-size:12px"><a href="JavaScript:DeLog()">[ Déconnexion ]</a></td></tr></table>
+
+<FONT FACE="Arial" SIZE='0' COLOR="#CCCCCCC">
+<SCRIPT type="text/JavaScript">
+	Aff(parent.menu);
+
+</SCRIPT>
+</FONT></BODY></HTML>
+<!-- Script développé par Olivier Hondermarck  -->
+<!-- D'autres scripts et des conseils sur http://www.toutjavascript.com -->

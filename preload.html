@@ -1,0 +1,84 @@
+<HTML><HEAD><TITLE>Preload</TITLE>
+<SCRIPT language=javascript> 
+//Script par Nicolas Catez (http://esurf.fr.tc/)
+
+var ie = document.all?true:false // On test le navigateur pour IE 
+
+onload = preloadImage // Appel de la function preloadImage() au chargement de la page. Peut etre remplacer par <body onload="preloadImage()">
+
+function addZero(chiffre){ // Function qui ajoute un zero devant les chiffres
+	if (chiffre < 10) { chiffre = "0"+chiffre; }
+	if (chiffre < 100) { chiffre = "0"+chiffre; }
+	return chiffre; 
+}
+
+var i=0; // On initialise le comptage des images a 0.
+function preloadImage(){ 
+	var myContent = document.getElementsByTagName("img") // On repere les images contenu dans la page
+	var totalImage = myContent.length // Et on compte combien il y'en a
+	percent = Math.ceil((i+1)*100/totalImage) // A chaque passage dans la fonction, on calcule le pourcentage de i par rapport au nb d'image
+
+	if (i < totalImage){ // Si l'image traité n'est pas la derniere image du doc on execute ce qui suit.
+		if (myContent.item(i).complete) {  // si l'image i est chargée, on envoi le pourcentage dans le div
+		document.getElementById("preloadPercent").innerHTML = "[please wait " + addZero(percent) + "%]"; 
+		document.loadedGreen.style.width = percent // Et on redimension l'image rouge
+		document.loadedRed.style.width = 100-percent // pareil en consequence avec la verte.
+		i++ // On increment i, pour passer a l'image suivante
+		setTimeout(preloadImage) // Et hop, on repasse dans la fonction avec l'image suivante
+		}
+	} else { // Sinon, on deduit que les images ont toute été chargées, et on cache le preload.
+	if (!ie) document.getElementById("preloadCache").style.visibility = "hidden"; // Si le client n'est pas IE on vire tout simplement le cache
+	else crosoftFade() // Sinon on applique un effet de fade progressif en appelant la fonction crosoftFade() 
+	}
+}
+
+var opacity = 100 // Opacity de depart
+function crosoftFade(){
+opacity -= 25; // Opacity -25 a chaque passage
+document.getElementById("preloadCache").style.filter = "progid:DXImageTransform.Microsoft.Alpha(opacity=" + opacity + ")";
+if (opacity > 0) setTimeout(crosoftFade); // On passe cette fonction en boucle tant que le cache n'a pas disparu
+else document.getElementById("preloadCache").style.visibility = "hidden"; 
+}
+
+</SCRIPT>
+
+<STYLE type=text/css>BODY {
+	FONT-SIZE: 10px; FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif
+}
+TD {
+	FONT-SIZE: 10px; FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif
+}
+</STYLE>
+
+<META content="MSHTML 6.00.2600.0" name=GENERATOR></HEAD>
+<BODY text=#000000 bgColor=#ffffff><!-- le cache a placer dans le corps de la page -->
+<DIV id=preloadCache 
+style="Z-INDEX: 123; LEFT: 0px; WIDTH: 100%; POSITION: absolute; TOP: 0px; HEIGHT: 100%">
+<TABLE height="100%" cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD align=middle bgColor=#ffffff>
+      <DIV id=preloadPercent><FONT color=#999999>[please wait 
+      000%]</FONT></DIV><BR>
+      <TABLE cellSpacing=0 cellPadding=1 width=100 border=0>
+        <TBODY>
+        <TR bgColor=#999999>
+          <TD><IMG height=4 src="preload/green.gif" width=0 
+            name=loadedGreen></TD>
+          <TD><IMG height=4 src="preload/red.gif" width=100 
+            name=loadedRed></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></DIV><!-- fin du cache --><B>Ton 
+contenu ici :</B><br><br>
+<img src="preload/contenu1.jpg"><br>
+<img src="preload/contenu2.jpg"><br>
+<img src="preload/contenu3.jpg"><br>
+<img src="preload/contenu4.jpg"><br><br>
+<img src="preload/contenu1.jpg"><br>
+<img src="preload/contenu2.jpg"><br>
+<img src="preload/contenu3.jpg"><br>
+<img src="preload/contenu4.jpg"><br><br>
+<img src="preload/contenu1.jpg"><br>
+<img src="preload/contenu2.jpg"><br>
+<img src="preload/contenu3.jpg"><br>
+<img src="preload/contenu4.jpg"><br><br>
+</body>
+</html>

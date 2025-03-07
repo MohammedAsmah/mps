@@ -1,0 +1,63 @@
+<HTML>
+<HEAD>
+<TITLE> Page n°1 </TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF">
+<A name="section_1"></A>
+<FONT FACE="Arial" SIZE="2" COLOR="#000033">
+<FONT SIZE="3" COLOR="#006666"><B><CENTER>COMMENT IMPLEMENTER UN MENU DYNAMIQUE POUR LES FRAMES</CENTER></B><BR>
+</FONT>
+<BR><B><FONT FACE='Arial' color="#006633"> Comment le param&eacute;trer ?</FONT></B><BR>
+
+Ce menu est cod&eacute; en JavaScript <B>OBJET</B>.<BR>
+La d&eacute;claration se fait dans la page principale qui contient la d&eacute;finition des frames (la page MENUDYN.HTML).<BR>
+Editez la avec un éditeur texte comme ultraedit, editplus ou notepade.<BR>
+Il suffit de respecter l'ordre du menu pour la cr&eacute;ation des rubriques et des options.<BR>
+<UL>
+<LI>D&eacute;claration de l'objet menu<PRE>
+var menu = new CreerMenu(police,colO,colF,imgO,imgF,imgOption,imgOptionFin,hauteur,target,mode)
+	avec police, la police du menu
+	avec colO, la couleur des rubriques ouvertes
+	avec colF, la couleur des rubriques ferm&eacute;es
+	avec imgO, l'image en face des rubriques ouvertes
+	avec imgF, l'image en face des rubriques ferm&eacute;es
+	avec imgOption, l'image en face des options d'une rubrique
+	avec imgOptionFin, l'image en face de la derni&egrave;re option d'une rubrique
+	avec hauteur, la hauteur en pixel des images
+	avec target, le nom de la frame de destination
+	avec mode, le paramètre qui ferme automatique une rubrique ("O" pour oui, "N" pour non)</PRE>
+<LI>Cr&eacute;ation de la premi&egrave;re rubrique<PRE>
+menu.AddRub(txt,afficherOuiNon,Page)
+	avec txt, le texte de la rubrique (exemple : RUBRIQUE n°1)
+	avec afficherOuiNon qui vaut "O" si la rubrique doit &ecirc;tre d&eacute;roul&eacute;e; "N" sinon.
+	avec Page qui contient l'adresse d'une page &agrave charger lors de l'ouverture de la rubrique</PRE>
+<LI>Cr&eacute;ation des options de la rubrique pr&eacute;c&eacute;dente <PRE>
+menu.AddLien(txt,page,target);
+	avec txt, le texte de l'option
+	avec page, l'adresse de la page &agrave; afficher dans la frame de droite
+	avec target, la destination si différente de celle principale</PRE>
+<LI>Cr&eacute;ation de la rubrique suivante et de ses options. Idem, sans limitation
+</UL>
+
+Vous trouverez dans la rubrique "Boutique" du site Tout JavaScript.com une extension de ce script permettant d'afficher des sous rubriques sans limitation de niveaux.
+
+
+<A name="section_3"></A>
+<BR><BR><BR><B><FONT FACE='Arial' color="#006633"> Copyright &copy; </FONT></B><BR>
+Ce script est &agrave votre disposition.<BR>
+Merci de m'envoyer un mail si vous l'utilisez ou si vous avez des questions :<BR>
+<B> Olivier Hondermarck </B><A HREF=mailto:webmaster@toutjavascript.com>webmaster@toutjavascript.com</A>
+<BR><BR><HR>
+
+
+<CENTER>
+D'autres scripts et des conseils sur <A HREF="javascript:top.location='http://www.toutjavascript.com'">
+<B>http://www.toutjavascript.com</B></A></CENTER>
+
+</FONT>
+</BODY>
+</HTML>
+
+<!-- Script développé par Olivier Hondermarck  webmaster@toutjavascript.com -->
+<!-- D'autres scripts et des conseils sur http://www.toutjavascript.com -->

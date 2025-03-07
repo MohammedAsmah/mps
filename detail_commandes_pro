@@ -1,0 +1,49 @@
+-- phpMyAdmin SQL Dump
+-- version 3.1.1
+-- http://www.phpmyadmin.net
+--
+-- Serveur: localhost
+-- Généré le : Ven 20 Novembre 2009 à 00:41
+-- Version du serveur: 5.1.30
+-- Version de PHP: 5.2.8
+
+SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+
+--
+-- Base de données: `mps2008`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `detail_commandes_pro`
+--
+
+CREATE TABLE IF NOT EXISTS `detail_commandes_pro` (
+  `id` bigint(6) NOT NULL AUTO_INCREMENT,
+  `champs1` char(1) NOT NULL DEFAULT '',
+  `commande` bigint(6) NOT NULL DEFAULT '0',
+  `produit` varchar(50) NOT NULL DEFAULT '0',
+  `quantite` int(4) NOT NULL DEFAULT '0',
+  `condit` int(3) NOT NULL DEFAULT '0',
+  `prix_unit` decimal(10,2) NOT NULL DEFAULT '0.00',
+  `remise` int(1) NOT NULL DEFAULT '0',
+  `remise1` int(1) NOT NULL DEFAULT '0',
+  `facture` bigint(6) NOT NULL DEFAULT '0',
+  `valider_f` int(1) NOT NULL DEFAULT '0',
+  `sans_remise` int(1) NOT NULL DEFAULT '0',
+  `sub` int(1) NOT NULL DEFAULT '0',
+  `date` date NOT NULL DEFAULT '0000-00-00',
+  `client` varchar(100) NOT NULL DEFAULT '',
+  `vendeur` varchar(100) NOT NULL DEFAULT '',
+  `bon_sortie` varchar(100) NOT NULL DEFAULT '',
+  `valeur` decimal(10,2) NOT NULL DEFAULT '0.00',
+  `evaluation` varchar(50) NOT NULL DEFAULT '',
+  `id_registre` bigint(6) NOT NULL DEFAULT '0',
+  `depot_a` bigint(10) NOT NULL DEFAULT '0',
+  `depot_b` bigint(10) NOT NULL DEFAULT '0',
+  `depot_c` bigint(10) NOT NULL DEFAULT '0',
+  `type` varchar(50) NOT NULL,
+  `date_p` date NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;

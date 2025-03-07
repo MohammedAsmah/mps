@@ -1,0 +1,34 @@
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+ # HTTP caching control with Cache-Control header
+ # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+ # Note : "Cache-Control" rules take precedence over other caching rules like "Expires" and "ExpiresByType" rules)
+ # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+SetEnv PHP_VER 5_TEST
+SetEnv REGISTER_GLOBALS 0
+
+Deny from 157.55.39.179
+
+RewriteEngine On
+RewriteCond %{HTTPS} off
+RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI}
+
+
+<IfModule mod_headers.c>
+ <FilesMatch "\\.(ico|jpe?g|png|gif|bmp|pdf|swf|flv|gz)$">
+ Header set Cache-Control "max-age=60, public"
+ </FilesMatch>
+  
+<FilesMatch "\\.(css|js)$">
+ Header set Cache-Control "max-age=7200, public"
+ </FilesMatch>
+  
+# Disable caching for html, xml, text and dynamic files
+ <FilesMatch "\.(html|htm|xml|txt|pl|php|cgi|spl|scgi|fcgi)$">
+ Header set Cache-Control "no-cache, must-revalidate"
+ </FilesMatch>
+ </IfModule>
+ 
+ <IfModule mod_php5.c>
+    php_value max_execution_time 300
+    php_value memory_limit 256M
+</IfModule>

@@ -1,0 +1,25 @@
+Bonjour, pour utiliser ce menu très dynamique:
+
+Une fois que vous avez extrait et uploader le dossier menu-dynamique dans le répertoire de votre site ...
+
+   1 - Dans phpMyAdmin, exécuter le fichier "table-liencat.sql".
+   2 - Editer le fichier "module.php" en y mettant vos infos de connexion pour votre base(login,password,...).
+   3 - Re-uploader le fichier "module.php" contenant les bonnes infos.
+   4 - Taper l'adresse de votre site + "/menu-dynamique/" dans dans votre navigateur et voir le résultat.
+   5 - M'envoyer un petit mot pour remercier ou critiquer.
+
+
+
+
+**************************************************************************************************************
+****     Le script PHP et le Javascript pour le clique droit de la Div qui s'affiche au 
+****     clique droit est entièrement de moi: Xavier Langlois (Caen,France)    
+****          E-mail: xavier.langlois@gmail.com                                               
+****          Site perso: http://xl714.free.fr                                                                
+****     Ca serait sympa de me laisser un message si mon script vous apporte quelque chose 
+****     Et de laisser cette entête si vous mettez ce script en ligne.                                  
+****                                                                                                                     
+****     Le script pour transformer la simple liste en menu déroulant vient de:                 
+****	 http://www.javascriptfr.com/code.aspx?ID=21208  par Michel Deboom             
+****     Si vous consultez son site il peut être vertical à gauche, à droite, avec des images...        	
+**************************************************************************************************************

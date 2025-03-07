@@ -1,0 +1,68 @@
+<HTML><HEAD>
+<TITLE>Tout JavaScript.com - Menu DYNAMIQUE param&eacute;trable </TITLE>
+<SCRIPT LANGUAGE="JavaScript">
+// D'autres scripts et des tutoriaux sur http://www.toutjavascript.com	
+// Script gratuit à condition de laisser ce commentaire 
+
+var menu=new CreerMenu("verdana,arial","#0000CC","#0000FF","dyn03.gif","dyn04.gif","dyn02.gif","dyn05.gif",18,'right',"O");
+menu.AddRub("<B>Menu Dynamique</B>","O","");
+menu.AddLien("Pourquoi dynamique","present.html");
+menu.AddLien("Comment param&eacute;trer","param.html");
+menu.AddRub("<B>Options</B>","N","option.html");
+menu.AddLien("option 1","option1.html");
+menu.AddLien("option 2","option2.html");
+menu.AddLien("option 3","option3.html");
+menu.AddRub("<B>Sites Web</B>","N","siteweb.html");
+menu.AddLien("Tout JavaScript.com","http://localhost/toutjavascript","_blank");
+menu.AddLien("Zone Gifs","http://www.zonegifs.com","_blank");
+menu.AddLien("Micronetscop","http://www.microscop.net","_blank");
+
+function CreerMenu(police,ColFerme,ColOuvert,imgO,imgF,imgOption,imgOptionFin,hauteur,target,mode) {
+	this.nb_rub=0;
+	this.police=police;
+	this.colF=ColFerme;
+	this.colO=ColOuvert;
+	this.imgO=imgO;
+	this.imgF=imgF;
+	this.imgOpt=imgOption;
+	this.imgOptFin=imgOptionFin;
+	this.hauteur=hauteur;
+	this.target=target;
+	this.mode=mode;
+	this.AddRub=AddRubrique;
+	this.AddLien=AddLink;
+}
+
+function AddRubrique(txt,aff,page) {
+	var rub = new Object;
+	rub.txt=txt;
+	rub.aff=aff;
+	rub.page=page;
+	rub.nb_lien=0;
+	this[this.nb_rub]=rub;
+	this.nb_rub++;
+}
+function AddLink(txt,page,target) {
+	var no_rub = this.nb_rub-1;
+	var no_lien= this[no_rub].nb_lien;
+	var lien = new Object;
+		lien.txt=txt;
+		lien.page=page;
+		lien.target="";
+		if ((target!=null)&&(target!="")) {lien.target=target;}
+	this[no_rub][no_lien]=lien;
+	this[no_rub].nb_lien++;
+}
+</SCRIPT>
+</HEAD>
+
+<FRAMESET COLS="230,*">
+	<FRAME NAME="left" SRC="navigdyn.html">
+	<FRAME NAME="right" SRC="intro.html">
+</FRAMESET>
+
+</HTML>
+
+<!-- Script développé par Olivier Hondermarck  webmaster@toutjavascript.com -->
+<!-- D'autres scripts et des conseils sur http://www.toutjavascript.com -->
+

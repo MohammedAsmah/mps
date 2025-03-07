@@ -1,0 +1,23 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=ISO-8859-1">
+<TITLE>Rapport MySQL</TITLE>
+<STYLE>
+BODY {font-family:"Times New Roman",serif}
+H2 {color:#4000A0}
+.st {font-weight:bold; color:#900000}
+</STYLE>
+</HEAD>
+<BODY>
+<H2>Rapport MySQL</H2>
+<H4 CLASS="st">Informations</H4>Auteur : <A HREF="mailto:nod@bouncing.org?subject=Rapport%20MySQL">Philip Clarke</A><BR>Licence : Freeware
+<H4 CLASS="st">Description</H4>Ce script est une variante de <A HREF="http://www.fpdf.org/?go=script&id=12" TARGET="_blank">Tableau avec colonnes multi-pages</A>.
+La différence est que lorsqu'une requête est exécutée, le script parcourt les résultats, récupère
+les longueurs des chaînes et redimensionne les colonnes pour essayer de tout mettre dans la page.
+Si une colonne n'utilise pas toute la largeur qui lui est allouée, elle est réduite et l'espace
+récupéré réalloué à une autre colonne. Le but est d'obtenir une présentation agréable, mais
+l'inconvénient est que le temps d'exécution peut être un peu long. C'est pourquoi il y a une
+option de dump qui affiche du code PHP pour fixer la taille des colonnes, on peut ainsi faire un
+test avec une petite quantité de données, puis utiliser les valeurs obtenues sur l'ensemble.
+</BODY>
+</HTML>

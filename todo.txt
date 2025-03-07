@@ -1,0 +1,15 @@
+OPENBOOKINGS.ORG 0.6.1b TODO LIST
+
+- Improve the week chart (show more details and allow to add/edit bookings from it)
+- The language setting must become a user setting
+- Include new localizations (see the MySQL table rs_param_lang to localize the application yourself)  (thanks for your German localization, Martin from Switzerland)
+- Add the possibility for companies to customise the application with their own logo & colors
+- Add a localization interface
+- Encrypt the passwords
+- Enhance global security
+- Add the possibility for admins and/or users to change the date format (thanks Martin)
+- Add users to register themselves
+- Allow anonymous, read-only user profile to browse bookings (thanks Martin)
+- Allow profile locking
+
+- Any idea ? jerome@openbookings.org
