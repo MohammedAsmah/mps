@@ -1,6 +1,7 @@
 <?php
-	
-	
+	require_once 'connect_db_updated.php'; 
+
+
 	// refeshes the cookie (resets timeout)
 	if(isset($_COOKIE["bookings_user_id"])) {
 		$session_timeout = param_extract("session_timeout");
@@ -82,7 +83,7 @@
 		return $date_and_hour;
 	}
 
-	function param_extract($param_name) {
+	/* function param_extract($param_name) {
 		
 		global $database_name;
 		
@@ -95,6 +96,22 @@
 
 
 
+	} */
+	function param_extract($param_name) {
+		global $mysqli; // Use the MySQLi connection from connection.php
+	
+		// Use prepared statements to prevent SQL injection
+		$sql = "SELECT param_value FROM rs_param WHERE param_name = ?";
+		$stmt = $mysqli->prepare($sql);
+		$stmt->bind_param("s", $param_name); // "s" = string type
+		$stmt->execute();
+		$result = $stmt->get_result();
+	
+		if ($row = $result->fetch_assoc()) {
+			return $row['param_value'];
+		} else {
+			return null; // Handle no results
+		}
 	}
 
 	function CheckCookie() {  // Resets app to the index page if timeout is reached

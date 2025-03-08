@@ -13,8 +13,59 @@ $ip=$_SERVER["REMOTE_ADDR"];
 	if(isset($_REQUEST["action_"])) {
 		
 		switch($_REQUEST["action_"]) {
-
 			case "login":
+				// Use prepared statements to prevent SQL injection
+				$sql = "SELECT user_id FROM rs_data_users WHERE login = ? AND password = ?";
+				$stmt = $mysqli->prepare($sql);
+			
+				if (!$stmt) {
+					die("SQL Error: " . $mysqli->error);
+				}
+			
+				// Bind parameters
+				$stmt->bind_param("ss", $_REQUEST["user"], $_REQUEST["password"]);
+				$stmt->execute();
+				$result = $stmt->get_result();
+			
+				if ($user_ = $result->fetch_assoc()) {
+					// Login successful -> set the cookie
+					if ($session_timeout != 0) {
+						setcookie("bookings_user_id", $user_["user_id"], time() + $session_timeout);
+					} else {
+						setcookie("bookings_user_id", $user_["user_id"]);
+					}
+			
+					// Fetch user details
+					$sql = "SELECT * FROM rs_data_users WHERE user_id = ?";
+					$stmt = $mysqli->prepare($sql);
+					$stmt->bind_param("i", $user_["user_id"]);
+					$stmt->execute();
+					$user_result = $stmt->get_result();
+					$user_ = $user_result->fetch_assoc();
+			
+					// Assign user details to variables
+					$login = $user_["login"];
+					$tout = $user_["tout"];
+					$menu1 = $user_["menu1"];
+					$menu2 = $user_["menu2"];
+					$menu3 = $user_["menu3"];
+					$menu4 = $user_["menu4"];
+					$menu5 = $user_["menu5"];
+					$menu6 = $user_["menu6"];
+					$menu7 = $user_["menu7"];
+					$menu8 = $user_["menu8"];
+					$menu9 = $user_["menu9"];
+					$menu10 = $user_["menu10"];
+					$menu11 = $user_["menu11"];
+					$menu12 = $user_["menu12"];
+					$menu13 = $user_["menu13"];
+				} else {
+					// Login/password incorrect
+					$error_message = "Login/password incorrect";
+				}
+				break;
+
+			/* case "login":
 
 			$sql  = "SELECT user_id FROM rs_data_users ";
 			$sql .= "WHERE login = '" . $_REQUEST["user"] . "' ";
@@ -51,7 +102,7 @@ $ip=$_SERVER["REMOTE_ADDR"];
 				
 			}
 
-			break;
+			break; */
 			
 			case "delog":
 			// wipes the cookie
@@ -77,7 +128,7 @@ $ip=$_SERVER["REMOTE_ADDR"];
 <meta name="description" content="">
 <meta name="keywords" content="">
 <meta name="robots" content="index,nofollow">
-
+<script src="https://cdn.tailwindcss.com"></script>
 <link rel="stylesheet" type="text/css" href="styles.css">
 
 <?php if(isset($_REQUEST["action_"])) { ?>
@@ -106,51 +157,37 @@ $ip=$_SERVER["REMOTE_ADDR"];
 	<frame name="middle_frame" src="intro.php">
 </frameset><noframes></noframes>
 
-<body>
+<body class="bg-blue-100">
 
 <?php } else { // no cookie : shows login form ?>
 
-<center>
+	<div class="min-h-screen bg-blue-100 flex flex-col items-center  justify-center">
+		<div class="w-full max-w-md bg-white p-8 rounded-lg flex flex-col justify-center items-center shadow-lg">
+        <!-- Company Title -->
+        <h1 class="text-4xl font-bold text-blue-600 mb-8">MPS</h1>
 
-<form id="login_form" name="login_form" method="post" action="index.php">
-
-	<table class="table3">
-	<tr><td style="height:30px"></td></tr>
-	<tr><td style="font-size:24px"><span style="font-size:12px"></span></td></tr>
-
-	<tr><td>
-
-		<table style="background: #efefef;"><tr><td style="padding:15px; border: 2px groove;">
-			
-			<table class="table3"><tr>
-				<td style="text-align:right"><?php echo "Utilisateur" ?> :</td><td><input type="text" id="user" name="user"></td>
-			</tr><tr>
-				<td style="text-align:right"><?php echo "Mot de Passe" ?> :</td><td><input type="password" id="password" name="password"></td>
-			</tr><tr><td style="height:15px" colspan="2"></td></tr><tr>
-				
-				<td colspan="2" style="text-align:center"><input type="submit" value="OK"></td>
-				
-			</tr>
-			<td><? $ip=$_SERVER["REMOTE_ADDR"];echo "MPS ";?></td><td></td>
-			
-			</table>
-
-		</td></tr></table>
-
-	</td></tr></table>
-
-	<?php if(isset($error_message)) { ?><p style="color:#ff0000"><?php echo $error_message; ?></p><?php } ?>
-
-	<input type="hidden" name="action_" value="login">
-
-</form>
-
-<table><tr>
-<td colspan="3"style="height:20px"></td>
-</tr><tr>
-</table>
-
-</center>
+        <!-- Login Form -->
+        <form id="login_form" name="login_form" method="post" action="index.php" class="w-full flex flex-col justify-center items-center">
+            <div class="mb-8 w-full">
+                <label for="user" class="block text-gray-800 text-sm font-bold mb-2">Utilisateur :</label>
+                <input type="text" id="user" name="user" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-600">
+            </div>
+            <div class="mb-8 w-full">
+                <label for="password" class="block text-gray-800 text-sm font-bold mb-2">Mot de Passe :</label>
+                <input type="password" id="password" name="password" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-600">
+            </div>
+            <div class="flex items-center justify-between">
+                <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:ring-2 focus:ring-blue-600">
+                    Connexion
+                </button>
+            </div>
+            <?php if (isset($error_message)) { ?>
+                <p class="text-red-500 text-xs italic mt-4"><?php echo $error_message; ?></p>
+            <?php } ?>
+            <input type="hidden" name="action_" value="login">
+        </form>
+		</div>
+    </div>
 
 </body>
 

@@ -381,7 +381,7 @@
 	<td style="width:10px"></td>
 	<td><a href="clients_mvt.php" target="middle_frame">[<?php print("<font size=\"3\" face=\"Comic sans MS\" color=\"#0000FF\">Clients Mvt</font>"); ?>]</a></td>
 	</tr>	<tr></tr>
-	<? }?>
+	<?php }?>
 	</tr>	<tr></tr>
 	<td style="width:10px"></td>
 	<td><a href="tarifa2.php" target="middle_frame">[<?php print("<font size=\"3\" face=\"Comic sans MS\" color=\"#0000FF\">Recherche Articles </font>"); ?>]</a></td>
@@ -393,7 +393,7 @@
 	<td style="width:10px"></td>
 	<td><a href="stock_produits_nc.php" target="middle_frame">[<?php print("<font size=\"3\" face=\"Comic sans MS\" color=\"#0000FF\">Stock NC</font>"); ?>]</a></td>
 	</tr>	<tr></tr>
-	<? }?>
+	<?php }?>
 	<td style="width:10px"></td>
 	<td><a href="fiches_stock.php" target="middle_frame">[<?php print("<font size=\"3\" face=\"Comic sans MS\" color=\"#0000FF\">Fiches Stock </font>"); ?>]</a></td>
 	</tr>	<tr></tr>
@@ -440,8 +440,8 @@
 	<td style="width:10px"></td><? $v="ventes";?>
 	<td><a href="machines.php" target="middle_frame">[<?php print("<font size=\"3\" face=\"Comic sans MS\" color=\"#0000FF\">Liste Machines</font>"); ?>]</a></td>
 	</tr>	
-	<? }?>
-	<? }?>
+	<?php }?>
+	<?php }?>
 	
 		
 	<?	if($_REQUEST["type_c"]=="bc"){?>
@@ -514,8 +514,8 @@
 	<td><a href="tarifs_achats.php" target="middle_frame">[<?php print("<font size=\"3\" face=\"Comic sans MS\" color=\"#0000FF\">Tarifs Achats  </font>"); ?>]</a></td>
 	</tr>	
 	
-	<? }?>
-	<? }?>
+	<?php }?>
+	<?php }?>
 	
 	
 		<? if($_REQUEST["type_c"]=="stock"){?>
@@ -631,7 +631,7 @@
 	<td style="width:10px"></td>
 	<td><a href="stock_produits_valorise.php" target="middle_frame">[<?php print("<font size=\"3\" face=\"Comic sans MS\" color=\"#0000FF\">Etat de Stock Articles1</font>"); ?>]</a></td>
 	</tr>
-		<? }?>
+	<?php }?>
 		
 	<?php if($login == "admin") { ?>
 	<tr>
@@ -648,13 +648,13 @@
 	</tr>
 	
 	
-		<? }?>	
+	<?php }?>	
 	<?php if($login == "admin" or $login=="leila") { ?>
 	<tr>
 	<td style="width:10px"></td>
 	<td><a href="entrees_stock_mp_controle.php" target="middle_frame">[<?php print("<font size=\"3\" face=\"Comic sans MS\" color=\"#0000FF\">Entrees Matieres P.S.F</font>"); ?>]</a></td>
 	</tr>
-		<? }?>		
+	<?php }?>		
 	<tr>
 	<td style="width:10px"></td>
 	<td><a href="stock_produits_alarmes.php" target="middle_frame">[<?php print("<font size=\"3\" face=\"Comic sans MS\" color=\"#0000FF\">Etat de Stock Alarme</font>"); ?>]</a></td>
@@ -695,7 +695,7 @@
 	<td style="width:10px"></td>
 	<td><a href="registres_vendeurs_global.php" target="middle_frame">[<?php print("<font size=\"3\" face=\"Comic sans MS\" color=\"#0000FF\">Indexation Bon Sortie</font>"); ?>]</a></td>
 	</tr>
-	<? } ?>
+	<?php } ?>
 	<tr>
 	<td style="width:10px"></td>
 	<td><a href="registres_bons_sortie.php" target="middle_frame">[<?php print("<font size=\"3\" face=\"Comic sans MS\" color=\"#0000FF\">Despatching Bon sortie </font>"); ?>]</a></td>
@@ -724,10 +724,10 @@
 	<td style="width:10px"></td>
 	<td><a href="registres_vendeurs_sg.php" target="middle_frame">[<?php print("<font size=\"3\" face=\"Comic sans MS\" color=\"#0000FF\">Validation BSG</font>"); ?>]</a></td>
 	</tr>
-	<? }?>
+	<?php }?>
 
-	<? }?>
-	<? }?>
+	<?php }?>
+	<?php }?>
 		<? if($_REQUEST["type_c"]=="ech"){?>
 	
 	<?php if($tout == 1 or $menu13==1) { ?>
@@ -805,7 +805,7 @@
 	<td><a href="porte_feuilles_indexation.php" target="middle_frame">[<?php print("<font size=\"3\" face=\"Comic sans MS\" color=\"#0000FF\">Indexation Porte feuilles</font>"); ?>]</a></td>
 	</tr>
 	<tr>
-	<? } ?>
+	<?php } ?>
 	<td style="width:10px"></td>
 	<td><a href="registres_remises_tresorerie.php" target="middle_frame">[<?php print("<font size=\"3\" face=\"Comic sans MS\" color=\"#0000FF\">Validation Remises </font>"); ?>]</a></td>
 	</tr>
@@ -882,10 +882,10 @@
 	<td style="width:10px"></td>
 	<td><a href="tb.php" target="middle_frame">[<?php print("<font size=\"3\" face=\"Comic sans MS\" color=\"#0000FF\">Tableau Bord</font>"); ?>]</a></td>
 	</tr>
-	<? }?>
+	<?php }?>
 	<? }?>
 
-		<? if($_REQUEST["type_c"]=="prod"){?>
+	<?php if($_REQUEST["type_c"]=="prod"){?>
 	
 	<?php if($tout == 1 or $menu11==1) { ?>
 	<tr>
@@ -925,7 +925,7 @@
 	
 	
 	
-	<? }?>
+	<?php }?>
 	<?php if($login == "admin"){?>
 	<tr>
 	<td style="width:10px"></td>
@@ -933,9 +933,9 @@
     </td>
 	
 	</tr>
-		<? }?>
+	<?php }?>
 	
-	<? }?>
+		<?php }?>
 	<tr>
 	<td style="width:10px"></td>
 	<td><a href="programme_machines.php" target="middle_frame">[<?php print("<font size=\"3\" face=\"Comic sans MS\" color=\"#0000FF\">Programme Machines </font>"); ?>]</a>
@@ -1003,8 +1003,8 @@
 	</tr>
 	<? }?>
 	
-	<? }?>
-	<? }?>
+	<?php }?>
+	<?php }?>
 		<? if($_REQUEST["type_c"]=="main"){?>
 	
 	<?php if($tout == 1 or $menu12==1) { ?>
@@ -1030,9 +1030,9 @@
 	<td><a href="fiches_techniques_moules_pdf.php" target="middle_frame">[<?php print("<font size=\"3\" face=\"Comic sans MS\" color=\"#0000FF\">Etat Moules </font>"); ?>]</a></td>
 	</tr>
 	
-	<? }?>	
-	<? }?>
-	<? }?>
+	<?php }?>	
+	<?php }?>
+	<?php }?>
 
 
 
@@ -1090,7 +1090,7 @@
 	<td style="width:10px"></td>
 	<td><a href="sorties_stock_couleurs.php" target="middle_frame">[<?php print("<font size=\"3\" face=\"Comic sans MS\" color=\"#0000FF\">MAJ Sortie Couleurs </font>"); ?>]</a></td>
 	</tr>
-	<? }?>
+	<?php }?>
 	</tr>
 	<td style="width:10px"></td>
 	<td><a href="evaluations_client_encours.php" target="middle_frame">[<?php print("<font size=\"3\" face=\"Comic sans MS\" color=\"#0000FF\">Commandes En cours</font>"); ?>]</a></td>
@@ -1107,7 +1107,7 @@
 	<td style="width:10px"></td>
 	<td><a href="palmares_gratuites.php" target="middle_frame">[<?php print("<font size=\"3\" face=\"Comic sans MS\" color=\"#0000FF\">Historique sortie personnel</font>"); ?>]</a></td>
 	</tr>
-	<? } ?>
+	<?php } ?>
 
 	</tr>	<tr></tr>
 	<td style="width:10px"></td>
@@ -1119,7 +1119,7 @@
 	<td style="width:10px"></td>
 	<td><a href="registres_vendeurs_controle_sorties.php" target="_Blank">[<?php print("<font size=\"3\" face=\"Comic sans MS\" color=\"#0000FF\">Controle Bon de Sortie</font>"); ?>]</a></td>
 	</tr>
-	<? } ?>
+	<?php } ?>
 	</tr>	<tr></tr>
 	<td style="width:10px"></td>
 	<td><a href="registres_vendeurs_t.php" target="middle_frame">[<?php print("<font size=\"3\" face=\"Comic sans MS\" color=\"#0000FF\">Bon Frais Transport</font>"); ?>]</a></td>
@@ -1212,7 +1212,7 @@
 	<td><a href="entrer_fichier_clients.php?type_c=<? echo $v;?>" target="middle_frame">[<?php print("<font size=\"3\" face=\"Comic sans MS\" color=\"#0000FF\">Importer commandes</font>"); ?>]</a></td>
 	</tr>	<tr></tr>	
 	
-<? }?>	
+<?php }?>	
 
 	<?php if($login == "admin" or $login == "rakia") { ?>
 	<tr>
@@ -1319,7 +1319,7 @@
 	</tr>	<tr></tr>
 	<td style="width:10px"></td><? $v="ventes";?>
 	<td><a href="evaluations_client_globale_fatimaezzahra.php?type_c=<? echo $v;?>" target="middle_frame">[<?php print("<font size=\"3\" face=\"Comic sans MS\" color=\"#0000FF\">odoo2</font>"); ?>]</a></td>
-	<? }?>
+	<?php }?>
 	</tr>	<tr></tr>
 	<td style="width:10px"></td><? $v="ventes";?>
 	<td><a href="evaluations_client_globale11.php?type_c=<? echo $v;?>" target="middle_frame">[<?php print("<font size=\"3\" face=\"Comic sans MS\" color=\"#0000FF\">Etat Evaluations Par Clients</font>"); ?>]</a></td>
@@ -1358,7 +1358,7 @@
 	<td><a href="evaluations_clients_escomptes.php?type_c=<? echo $v;?>" target="middle_frame">[<?php print("<font size=\"3\" face=\"Comic sans MS\" color=\"#0000FF\">Etat Evaluations escomptes</font>"); ?>]</a></td>
 	
 	
-	<? }?>
+	<?php }?>
 	
 	<?php if($login == "admin" or $login == "rakia") { ?>
 	</tr>	<tr></tr>
@@ -1471,7 +1471,7 @@
 	<td style="width:10px"></td><? $v="ventes";?>
 	<td><a href="journal_caisses_c_edition.php?type_c=<? echo $v;?>" target="middle_frame">[<?php print("<font size=\"3\" face=\"Comic sans MS\" color=\"#0000FF\">Edition Caisse Comptoir</font>"); ?>]</a></td>
 	</tr>	<tr></tr>
-		<? }?>
+	<?php }?>
 		
 		<?php if($tout == 1 or $menu6==1) { ?>
 	<tr>
@@ -1508,7 +1508,7 @@
 	<td style="width:10px"></td>
 	<td><a href="ecritures.php" target="middle_frame">[<?php print("<font size=\"3\" face=\"Comic sans MS\" color=\"#0000FF\">Journal Ecritures </font>"); ?>]</a></td>
 	</tr>	<tr></tr>
-	<? } ?>
+	<?php } ?>
 
 	<?php if($tout == 1 or $menu8==1) { ?>
 	<tr>
@@ -1594,7 +1594,7 @@
 	<td style="width:10px"></td><? $v="ventes";?>
 	<td><a href="historique_achats_col.php?type_c=<? echo $v;?>" target="middle_frame">[<?php print("<font size=\"3\" face=\"Comic sans MS\" color=\"#0000FF\">Historique Achat Collorant</font>"); ?>]</a></td>
 	</tr>	<tr></tr>
-	<? }?>
+	<?php }?>
 	<tr>
 	<td style="width:10px"></td>
 	<td><a href="etat_entrees_stock_mp.php" target="middle_frame">[<?php print("<font size=\"3\" face=\"Comic sans MS\" color=\"#0000FF\">Entrees Mat.P. </font>"); ?>]</a></td>
@@ -1609,8 +1609,8 @@
 	<td><a href="registres_reglements_frs.php" target="middle_frame">[<?php print("<font size=\"3\" face=\"Comic sans MS\" color=\"#0000FF\">Regl. Fournisseurs</font>"); ?>]</a></td>
 	</tr>	<tr></tr>	
 
-	<? }?>
-	<? }?>
+	<?php }?>
+	<?php }?>
 
 		<? if($_REQUEST["type_c"]=="fact"){?>
 
@@ -1725,7 +1725,7 @@
 	<td style="width:10px"></td>
 	<td><a href="emballages2.php" target="middle_frame">[<?php print("<font size=\"3\" face=\"Comic sans MS\" color=\"#0000FF\">Emballages Divers</font>"); ?>]</a></td>
 	</tr>	<tr></tr>
-	<? }?>
+	<?php }?>
 	
 	<? if ($login=="admin"){?>
 	<td style="width:10px"></td><? $v="ventes";?>
@@ -1734,7 +1734,7 @@
 	<td style="width:10px"></td><? $v="ventes";?>
 	<td><a href="indexer_factures_changer_articles.php?type_c=<? echo $v;?>" target="_Blank" >[<?php print("<font size=\"3\" face=\"Comic sans MS\" color=\"#0000FF\">Changer article/Factures</font>"); ?>]</a></td>
 	</tr>	<tr></tr>
-	<? }?>
+	<?php }?>
 	
 		<td style="width:10px"></td><? $v="ventes";?>
 	<td><a href="produits_finis.php?type_c=<? echo $v;?>" target="middle_frame">[<?php print("<font size=\"3\" face=\"Comic sans MS\" color=\"#0000FF\">Stock Produits Finis</font>"); ?>]</a></td>
@@ -1751,7 +1751,7 @@
 	<td style="width:10px"></td>
 	<td><a href="articles_en_productions.php" target="middle_frame">[<?php print("<font size=\"3\" face=\"Comic sans MS\" color=\"#0000FF\">Production articles </font>"); ?>]</a></td>
 	</tr>
-	<? }?>
+	<?php }?>
 	
 	
 <? if($login == "admin"){ ?>
@@ -1797,7 +1797,7 @@
 	<td style="width:10px"></td><? $v="ventes";?>
 	<td><a href="fiches_de_stocks_articles_matieres.php?type_c=<? echo $v;?>" target="middle_frame">[<?php print("<font size=\"3\" face=\"Comic sans MS\" color=\"#0000FF\">Fiches Techniques</font>"); ?>]</a></td>
 	</tr>	
-	<? }?>
+	<?php }?>
 	<tr></tr>
 	<td style="width:10px"></td><? $v="ventes";?>
 	<td><a href="declaration_tva.php?type_c=<? echo $v;?>" target="middle_frame">[<?php print("<font size=\"3\" face=\"Comic sans MS\" color=\"#0000FF\">Edition Declaration TVA</font>"); ?>]</a></td>
@@ -1811,7 +1811,7 @@
 	<td><a href="registres_tva_tableau.php?type_c=<? echo $v;?>" target="middle_frame">[<?php print("<font size=\"3\" face=\"Comic sans MS\" color=\"#0000FF\">Formule TVA</font>"); ?>]</a></td>
 	</tr>	<tr></tr>
 	
-	<? }?>
+	<?php }?>
 
 	<td style="width:10px"></td><? $v="ventes";?>
 	<td><a href="ca_par_valeur.php?type_c=<? echo $v;?>" target="middle_frame">[<?php print("<font size=\"3\" face=\"Comic sans MS\" color=\"#0000FF\">CA en Valeurs</font>"); ?>]</a></td>
@@ -1840,10 +1840,10 @@
 	<td style="width:10px"></td><? $v="ventes";?>
 	<td><a href="releves_factures_iks.php?type_c=<? echo $v;?>" target="middle_frame">[<?php print("<font size=\"3\" face=\"Comic sans MS\" color=\"#0000FF\">Releves Factures IKs</font>"); ?>]</a></td>
 	</tr>	<tr></tr>
-		<? } ?>
+	<?php } ?>
 	
-	<? } ?>
-	<? } ?>
+		<?php } ?>
+	<?php } ?>
 	
 	<? if($_REQUEST["type_c"]=="paie"){?>
 	<?php if($tout == 1 or $menu14==1) { ?>
